@@ -9,6 +9,8 @@ class Exercise extends Model
 {
     use HasFactory;
 
+    protected $table = 'exercise'; // Especifica el nombre de la tabla
+
     protected $fillable = [
         'name',
     ];

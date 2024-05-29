@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\RoutineController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,8 @@ Route::get('routines/{id}', [RoutineController::class, 'show'])->name('routines.
 Route::get('routines/{id}/edit', [RoutineController::class, 'edit'])->name('routines.edit');
 Route::put('routines/{id}', [RoutineController::class, 'update'])->name('routines.update');
 Route::delete('routines/{id}', [RoutineController::class, 'destroy'])->name('routines.destroy');
+
+//section exercises
+Route::get('exercise', [ExerciseController::class, 'index'])->name('exercise.index');
+Route::get('exercise/create', [ExerciseController::class, 'create'])->name('exercise.create');
+

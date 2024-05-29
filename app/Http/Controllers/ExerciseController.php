@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exercise;
 use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
@@ -12,6 +13,8 @@ class ExerciseController extends Controller
     public function index()
     {
         //
+        $exercises=Exercise::all();
+        return view('exercise.index',compact('exercises'));
     }
 
     /**
@@ -20,6 +23,7 @@ class ExerciseController extends Controller
     public function create()
     {
         //
+        return view('exercise.create');     
     }
 
     /**
