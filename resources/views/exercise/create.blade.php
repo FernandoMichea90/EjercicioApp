@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('routines.store') }}" method="POST">
+    <form action="{{ route('exercise.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
@@ -30,8 +30,8 @@
                 @endforeach
             </select>
         </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create Exercise</button>
 
-        <button type="submit" class="btn btn-primary">Create Routine</button>
     </form>
 </div>
 @endsection

@@ -32,6 +32,16 @@ class ExerciseController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        $exercise=Exercise::create($request->all());
+        return redirect()->route('exercise.index')->with('success', 'Routine created successfully.');
+
+
+
     }
 
     /**

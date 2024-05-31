@@ -30,4 +30,5 @@ Route::delete('routines/{id}', [RoutineController::class, 'destroy'])->name('rou
 //section exercises
 Route::get('exercise', [ExerciseController::class, 'index'])->name('exercise.index');
 Route::get('exercise/create', [ExerciseController::class, 'create'])->name('exercise.create');
+Route::post('exercise', [ExerciseController::class, 'store'])->name('exercise.store');
 
