@@ -9,6 +9,8 @@ class Set extends Model
 {
     use HasFactory;
 
+    protected $table = 'set'; // Especifica el nombre de la tabla
+
     protected $fillable = [
         'routine_id',
         'exercise_id',

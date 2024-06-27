@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Routine;
+use App\Models\Exercise;
+use App\Models\Equipment;
+use App\Models\Set;
+
+
 use Illuminate\Http\Request;
 
 class RoutineController extends Controller
@@ -21,6 +26,12 @@ class RoutineController extends Controller
     {
         $routines = Routine::all();
         return view('routines.index', compact('routines'));
+    }
+
+    public function welcome()
+    {
+        $routines = Routine::all();
+        return view('welcome', compact('routines'));
     }
 
     
@@ -46,8 +57,26 @@ class RoutineController extends Controller
     public function show(string $id)
     {
         $routine = Routine::findOrFail($id);
-        return view('routines.show', compact('routine'));
+        $sets = Set::where('routine_id', $id)->get();
+        return view('routines.show', compact('routine','sets'));
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function view(string $id)
+    {
+        $routine = Routine::findOrFail($id);
+        $exercises = Exercise::all();
+        $equipment = Equipment::all();
+        $sets = Set::where('routine_id', $id)->get();
+        
+        return view('routines.view', compact('routine', 'exercises', 'equipment', 'sets'));
+    }
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.

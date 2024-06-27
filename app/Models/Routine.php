@@ -10,6 +10,8 @@ class Routine extends Model
     use HasFactory;
 
     protected $table = 'routine'; // Especifica el nombre de la tabla
+    protected $primaryKey = 'id_routine'; // Nombre de la columna primaria
+    
 
     protected $fillable = [
         'name',

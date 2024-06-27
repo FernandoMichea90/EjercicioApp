@@ -48,8 +48,10 @@ class ExerciseController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+    {   
+        //Obtener exercise
+        $exercise=Exercise::findOrFail($id);
+        return view('exercise.view',compact('exercise'));
     }
 
     /**
@@ -65,7 +67,16 @@ class ExerciseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+    
+        $exercise = Exercise::findOrFail($id);
+        $exercise->name = $request->name;
+        $exercise->save();
+    
+        return redirect()->route('exercise.index')->with('success', 'Exercise updated successfully');
+    
     }
 
     /**
@@ -73,6 +84,10 @@ class ExerciseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //Elminar ejericicio 
+        $exercise=Exercise::findOrFail($id);
+        $exercise->delete();
+        return redirect()->route('exercise.index')->with('success', 'Routine deleted successfully.');
+
     }
 }
