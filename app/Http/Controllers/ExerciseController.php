@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
+use App\Models\Ejercicio_grupo_muscular;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
@@ -14,15 +16,15 @@ class ExerciseController extends Controller
     {
         //
         $exercises=Exercise::all();
-        return view('exercise.index',compact('exercises'));
+        $grupo_muscular=Ejercicio_grupo_muscular::all();
+        return view('exercise.index',compact('exercises','grupo_muscular'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {    
         return view('exercise.create');     
     }
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Ejercicio_grupo_muscular;
 
 class Exercise extends Model
 {
@@ -19,5 +20,12 @@ class Exercise extends Model
     {
         return $this->hasMany(Set::class);
     }
+
+     // Define the relationship with EjercicioGrupoMuscular
+     public function gruposMusculares()
+     {
+        
+         return $this->hasMany(Ejercicio_grupo_muscular::class, 'exercise_id');
+     }
 
 }
