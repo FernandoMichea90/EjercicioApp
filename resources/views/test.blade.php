@@ -4,7 +4,7 @@
 
 <div class="container">
   
-<h1>Body Muscles</h1>
+<h1>Pecho y Espalda </h1>
 
 {{
     print($svg)

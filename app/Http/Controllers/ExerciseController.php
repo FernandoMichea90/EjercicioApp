@@ -11,7 +11,7 @@ class ExerciseController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+    //  */
     public function index()
     {
         //
@@ -61,6 +61,9 @@ class ExerciseController extends Controller
     
         $exercise = Exercise::findOrFail($id);
         $exercise->name = $request->name;
+        // mostrar el 
+        Log::info('este es la informacion de del ejercico',$exercise);
+
         $exercise->save();
     
         return redirect()->route('exercise.index')->with('success', 'Exercise updated successfully');
@@ -77,5 +80,15 @@ class ExerciseController extends Controller
         $exercise->delete();
         return redirect()->route('exercise.index')->with('success', 'Routine deleted successfully.');
 
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'name'=>'required|string|max:255'
+        ]);
+
+        Log::info('esta es la informacion de exercise',$request->all());
+        // Exercise::create($request->all);
+        return redirect()->route('exercise.index')->with('success',"Exercise created");
     }
 }

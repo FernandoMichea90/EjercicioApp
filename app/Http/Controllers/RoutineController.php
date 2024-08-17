@@ -112,5 +112,5 @@ class RoutineController extends Controller
         $routine->delete();
 
         return redirect()->route('routines.index')->with('success', 'Routine deleted successfully.');
-    }
+    }   
 }
