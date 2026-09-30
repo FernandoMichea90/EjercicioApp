@@ -27,13 +27,16 @@
 
         <div class="mb-4">
             <label class="block text-gray-700 dark:text-gray-300 mb-2">Grupos Musculares</label>
-            <div class="grid grid-cols-2 gap-4">
-                @foreach(['Pecho','Espalda','Trapecio','Hombros','Biceps','Triceps','Antebrazos','Muslos','Pantorrillas','Glúteos','Abdomen'] as $grupo)
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="grupos_musculares[]" value="{{ $grupo }}" class="form-checkbox h-5 w-5 text-blue-600 border-gray-300 rounded dark:bg-gray-800 dark:border-gray-600 dark:text-white">
-                    <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{{ $grupo }}</span>
-                </label>
-                @endforeach
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                <div class="grid grid-cols-2 gap-4">
+                    @foreach(['Pecho','Espalda','Trapecio','Hombros','Biceps','Triceps','Antebrazos','Muslos','Pantorrillas','Glúteos','Abdomen'] as $grupo)
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="grupos_musculares[]" value="{{ $grupo }}" class="form-checkbox h-5 w-5 text-blue-600 border-gray-300 rounded dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{{ $grupo }}</span>
+                    </label>
+                    @endforeach
+                </div>
+                <x-body-map />
             </div>
         </div>
 
